@@ -1,5 +1,6 @@
 import AppHeader from '@/components/app-header';
 import Hero from '@/components/hero';
+import SocialProof from '@/components/social-proof';
 
 export default function HomePage() {
   return (
@@ -7,6 +8,7 @@ export default function HomePage() {
       <AppHeader />
       <main className="flex-1">
         <Hero />
+        <SocialProof />
       </main>
     </div>
   );
