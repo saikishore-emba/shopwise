@@ -10,7 +10,7 @@ export default function Hero() {
   const heroBg = PlaceHolderImages.find((p) => p.id === 'hero-background');
 
   return (
-    <section className="relative w-full h-[calc(100dvh-4rem)]">
+    <section className="relative w-full min-h-[calc(100dvh-4rem)] py-12 md:py-0">
       {heroBg && (
         <Image
           src={heroBg.imageUrl}
@@ -23,15 +23,15 @@ export default function Hero() {
       )}
       <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/10" />
       <div className="relative container h-full grid lg:grid-cols-2 items-center gap-12">
-        <div className="space-y-6 text-left">
+        <div className="space-y-6 text-center lg:text-left">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground">
             Never Overpay Again.
           </h1>
-          <p className="max-w-[500px] text-lg text-foreground/80 md:text-xl">
+          <p className="max-w-[500px] mx-auto lg:mx-0 text-lg text-foreground/80 md:text-xl">
             ShopWise scans the web to find you the absolute best deal on any
             product, guaranteed. Save time, save money.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <Link
               href="#"
               className={cn(
@@ -52,7 +52,7 @@ export default function Hero() {
             </Link>
           </div>
         </div>
-        <div className="hidden lg:flex items-center justify-center -mr-16">
+        <div className="flex items-center justify-center -mr-16">
           <PhoneMockup />
         </div>
       </div>
