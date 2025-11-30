@@ -39,7 +39,7 @@ export default function Hero() {
                 'bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg'
               )}
             >
-              Download for Free
+              Get the App
             </Link>
             <Link
               href="#"
