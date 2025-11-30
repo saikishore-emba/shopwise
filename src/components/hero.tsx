@@ -31,8 +31,8 @@ export default function Hero() {
             Secure the lowest price on your next gadget.
           </h1>
           <p className="max-w-[500px] mx-auto lg:mx-0 text-lg text-foreground/80 md:text-xl">
-            ShopWise scans the web to find you the absolute best price on any
-            product, guaranteed. Save time, save money.
+            ShopWise helps to find you the absolute best price on any product,
+            guaranteed. Save time, save money.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <Link
