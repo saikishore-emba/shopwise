@@ -19,7 +19,7 @@ export default function AppHeader() {
               'bg-accent hover:bg-accent/90 text-accent-foreground'
             )}
           >
-            Get the App
+            Join the waitlist
           </Link>
         </nav>
       </div>
