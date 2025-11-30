@@ -1,3 +1,16 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "A blurred background of a modern, sunlit desk setting.",
+      "imageUrl": "https://images.unsplash.com/photo-1660555267263-c169c20ceb61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxibHVycmVkJTIwZGVza3xlbnwwfHx8fDE3NjQ0OTcwNjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "blurred desk"
+    },
+    {
+      "id": "product-laptop",
+      "description": "A modern laptop shown inside the app.",
+      "imageUrl": "https://images.unsplash.com/photo-1759668358660-0d06064f0f84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBsYXB0b3B8ZW58MHx8fHwxNzY0NDk3MDY0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern laptop"
+    }
+  ]
 }
