@@ -21,8 +21,11 @@ export default function Hero() {
           priority
         />
       )}
-      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/10 via-background/70 to-background/90" />
       <div className="relative container h-full grid lg:grid-cols-2 items-center gap-12">
+        <div className="flex items-center justify-center -ml-16">
+          <PhoneMockup />
+        </div>
         <div className="space-y-6 text-center lg:text-left">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground">
             Never Overpay Again.
@@ -51,9 +54,6 @@ export default function Hero() {
               Learn More
             </Link>
           </div>
-        </div>
-        <div className="flex items-center justify-center -mr-16">
-          <PhoneMockup />
         </div>
       </div>
     </section>
