@@ -42,7 +42,7 @@ export default function Hero() {
                 'bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg'
               )}
             >
-              Get the App
+              Join the waitlist
             </Link>
             <Link
               href="#"
