@@ -6,9 +6,11 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from './ui/button';
+import { useToast } from '@/hooks/use-toast';
 
 export default function Hero() {
   const heroBg = PlaceHolderImages.find((p) => p.id === 'hero-background');
+  const { toast } = useToast();
 
   // Google Analytics event handler
   function handleWaitlistClick() {
@@ -18,6 +20,12 @@ export default function Hero() {
         event_label: 'Join Waitlist Button',
       });
     }
+    
+    // Show thank you toast
+    toast({
+      title: "Thank you!",
+      duration: 2000,
+    });
   }
 
   return (
