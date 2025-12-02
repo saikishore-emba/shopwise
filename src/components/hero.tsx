@@ -27,9 +27,9 @@ export default function Hero() {
           <PhoneMockup />
         </div>
         <div className="space-y-6 text-center lg:text-left">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground">
-            Secure the lowest price on your next gadget.
-          </h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground">
+              Welcome to ShopWise – Now with a new look!
+            </h1>
           <p className="max-w-[500px] mx-auto lg:mx-0 text-lg text-foreground/80 md:text-xl">
             ShopWise helps to find you the absolute best price on product,
             guaranteed. Save time, save money.
