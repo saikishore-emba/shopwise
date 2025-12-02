@@ -22,11 +22,11 @@ export default function Hero() {
         />
       )}
       <div className="absolute inset-0 bg-gradient-to-r from-background/10 via-background/70 to-background/90" />
-      <div className="relative container h-full grid lg:grid-cols-2 items-center gap-12">
-        <div className="flex items-center justify-center -ml-16">
+      <div className="relative container h-full flex flex-col items-center justify-center gap-12">
+        <div className="flex items-center justify-center">
           <PhoneMockup />
         </div>
-        <div className="space-y-6 text-center lg:text-left">
+        <div className="space-y-6 text-center w-full flex flex-col items-center justify-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground">
               Welcome to ShopWise – Now with a new look!
             </h1>
