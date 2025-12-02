@@ -2,8 +2,18 @@ import { ShoppingCart } from 'lucide-react';
 import Link from 'next/link';
 import { buttonVariants } from './ui/button';
 import { cn } from '@/lib/utils';
+import { useToast } from '@/hooks/use-toast';
 
 export default function AppHeader() {
+  const { toast } = useToast();
+
+  function handleWaitlistClick() {
+    toast({
+      title: "Thank you!",
+      duration: 2000,
+    });
+  }
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
@@ -18,6 +28,7 @@ export default function AppHeader() {
               buttonVariants({ variant: 'default' }),
               'bg-accent hover:bg-accent/90 text-accent-foreground'
             )}
+            onClick={handleWaitlistClick}
           >
             Join the waitlist
           </Link>
