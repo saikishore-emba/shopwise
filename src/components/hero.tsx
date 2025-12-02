@@ -9,6 +9,16 @@ import { buttonVariants } from './ui/button';
 export default function Hero() {
   const heroBg = PlaceHolderImages.find((p) => p.id === 'hero-background');
 
+  // Google Analytics event handler
+  function handleWaitlistClick() {
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', 'join_waitlist_click', {
+        event_category: 'engagement',
+        event_label: 'Join Waitlist Button',
+      });
+    }
+  }
+
   return (
     <section className="relative w-full min-h-[calc(100dvh-4rem)] py-12 md:py-0">
       {heroBg && (
@@ -41,6 +51,7 @@ export default function Hero() {
                 buttonVariants({ size: 'lg' }),
                 'bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg'
               )}
+              onClick={handleWaitlistClick}
             >
               Join the waitlist
             </Link>
