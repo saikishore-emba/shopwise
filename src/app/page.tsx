@@ -218,8 +218,8 @@ export default function HomePage() {
              <div className="absolute -bottom-8 left-20 w-72 h-72 bg-purple-200 rounded-full blur-3xl mix-blend-multiply animate-blob animation-delay-4000"></div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left">
+          <div className="grid place-items-center gap-12">
+            <div className="text-center">
               <div className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium bg-emerald-50 text-emerald-700 border border-emerald-100 mb-8">
                 <Smartphone className="w-4 h-4 mr-2" />
                 Mobile Price Comparison Engine
@@ -258,31 +258,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Explainer Video Placeholder */}
-            <div className="relative">
-               <div className="aspect-video rounded-2xl bg-slate-900 shadow-2xl border border-slate-200 relative overflow-hidden group cursor-pointer hover:shadow-emerald-900/20 transition-all">
-                  {/* Play button overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center z-20">
-                     <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform border border-white/30">
-                        <Play className="w-8 h-8 text-white fill-current ml-1" />
-                     </div>
-                  </div>
-                  
-                  {/* Placeholder Text */}
-                  <div className="absolute bottom-6 left-6 text-white z-20">
-                     <p className="font-bold text-lg">See how it works</p>
-                     <p className="text-white/80 text-sm">0:10 • Explainer Video</p>
-                  </div>
-
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
-                  
-                  {/* Abstract Background for Video Placeholder */}
-                  <div className="absolute inset-0 bg-slate-800">
-                    <div className="absolute inset-0 opacity-30 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-500 via-slate-900 to-slate-900"></div>
-                  </div>
-               </div>
-            </div>
+            {/* Removed explainer video placeholder to streamline hero */}
           </div>
         </section>
 
