@@ -235,7 +235,7 @@ export default function HomePage() {
               </p>
 
               {/* Primary CTA Button (Replaces Search) */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-10">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
                 <Button 
                   size="lg"
                   className="h-14 px-8 text-lg bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-xl transition-all rounded-full"
@@ -274,10 +274,16 @@ export default function HomePage() {
               </div>
               <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Never Miss a Price Drop</h2>
               <p className="text-emerald-100 mb-10 text-lg leading-relaxed">Join 50,000+ smart shoppers. Get instant alerts when your favorite gadgets hit their lowest price.</p>
-              <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <Input placeholder="Enter your email address" className="bg-white/10 border-white/20 text-white placeholder:text-white/60 h-14 rounded-full px-6 focus-visible:ring-emerald-400" />
-                <Button className="bg-white text-emerald-900 hover:bg-emerald-50 h-14 px-8 font-bold rounded-full transition-transform active:scale-95">
-                  Subscribe
+              <div className="flex justify-center">
+                <Button 
+                  className="bg-white text-emerald-900 hover:bg-emerald-50 h-14 px-8 font-bold rounded-full transition-transform active:scale-95 shadow-lg"
+                  onClick={() => {
+                    trackClick('NEWSLETTER_CTA_CLICK');
+                    setIsWaitlistOpen(true);
+                  }}
+                >
+                  Get Early Access
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </div>
               <p className="mt-6 text-xs text-emerald-400/60">No spam, ever. Unsubscribe anytime.</p>
