@@ -218,8 +218,8 @@ export default function HomePage() {
              <div className="absolute -bottom-8 left-20 w-72 h-72 bg-purple-200 rounded-full blur-3xl mix-blend-multiply animate-blob animation-delay-4000"></div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left">
+          <div className="grid place-items-center gap-12">
+            <div className="text-center">
               <div className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium bg-emerald-50 text-emerald-700 border border-emerald-100 mb-8">
                 <Smartphone className="w-4 h-4 mr-2" />
                 Mobile Price Comparison Engine
@@ -235,7 +235,7 @@ export default function HomePage() {
               </p>
 
               {/* Primary CTA Button (Replaces Search) */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-10">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
                 <Button 
                   size="lg"
                   className="h-14 px-8 text-lg bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-xl transition-all rounded-full"
@@ -258,31 +258,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Explainer Video Placeholder */}
-            <div className="relative">
-               <div className="aspect-video rounded-2xl bg-slate-900 shadow-2xl border border-slate-200 relative overflow-hidden group cursor-pointer hover:shadow-emerald-900/20 transition-all">
-                  {/* Play button overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center z-20">
-                     <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform border border-white/30">
-                        <Play className="w-8 h-8 text-white fill-current ml-1" />
-                     </div>
-                  </div>
-                  
-                  {/* Placeholder Text */}
-                  <div className="absolute bottom-6 left-6 text-white z-20">
-                     <p className="font-bold text-lg">See how it works</p>
-                     <p className="text-white/80 text-sm">0:10 • Explainer Video</p>
-                  </div>
-
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
-                  
-                  {/* Abstract Background for Video Placeholder */}
-                  <div className="absolute inset-0 bg-slate-800">
-                    <div className="absolute inset-0 opacity-30 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-500 via-slate-900 to-slate-900"></div>
-                  </div>
-               </div>
-            </div>
+            {/* Removed explainer video placeholder to streamline hero */}
           </div>
         </section>
 
@@ -298,10 +274,16 @@ export default function HomePage() {
               </div>
               <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Never Miss a Price Drop</h2>
               <p className="text-emerald-100 mb-10 text-lg leading-relaxed">Join 50,000+ smart shoppers. Get instant alerts when your favorite gadgets hit their lowest price.</p>
-              <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <Input placeholder="Enter your email address" className="bg-white/10 border-white/20 text-white placeholder:text-white/60 h-14 rounded-full px-6 focus-visible:ring-emerald-400" />
-                <Button className="bg-white text-emerald-900 hover:bg-emerald-50 h-14 px-8 font-bold rounded-full transition-transform active:scale-95">
-                  Subscribe
+              <div className="flex justify-center">
+                <Button 
+                  className="bg-white text-emerald-900 hover:bg-emerald-50 h-14 px-8 font-bold rounded-full transition-transform active:scale-95 shadow-lg"
+                  onClick={() => {
+                    trackClick('NEWSLETTER_CTA_CLICK');
+                    setIsWaitlistOpen(true);
+                  }}
+                >
+                  Get Early Access
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </div>
               <p className="mt-6 text-xs text-emerald-400/60">No spam, ever. Unsubscribe anytime.</p>
