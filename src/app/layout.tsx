@@ -36,6 +36,8 @@ export default function RootLayout({
               gtag('config', 'G-YB0H9M7D2B');
             `,
           }} />
+          {/* Google Ads */}
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3861959107227469" crossOrigin="anonymous"></script>
       </head>
       <body className="font-body antialiased">
         {children}
