@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600">
+  <g id="rohan_group">
+    <g id="head"><circle cx="200" cy="120" r="60" fill="#FDE68A"/></g>
+    <g id="torso"><rect x="140" y="200" width="120" height="160" rx="20" fill="#60A5FA"/></g>
+    <g id="left_arm"><rect x="100" y="220" width="36" height="120" rx="12" fill="#60A5FA"/></g>
+    <g id="right_arm"><rect x="264" y="220" width="36" height="120" rx="12" fill="#60A5FA"/></g>
+    <g id="phone"><rect x="270" y="240" width="48" height="90" rx="8" fill="#fff" stroke="#e2e8f0"/></g>
+  </g>
+</svg>

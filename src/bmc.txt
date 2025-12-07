@@ -1,0 +1,329 @@
+import React, { useState } from 'react';
+import { 
+  Search, Smartphone, GitCompare, CreditCard, CheckCircle, ArrowRight, 
+  User, Frown, Lightbulb, TrendingUp, Users, Target, Zap, Layout, 
+  DollarSign, PieChart, Share2, ShieldCheck, Briefcase, Video, Store
+} from 'lucide-react';
+
+const ShopwiseApp = () => {
+  const [activeTab, setActiveTab] = useState('bmc'); // 'journey' or 'bmc'
+  const [activeStage, setActiveStage] = useState(0);
+
+  // --- Journey Map Data ---
+  const stages = [
+    {
+      id: 0,
+      title: "Discovery & Entry",
+      icon: <Search className="w-6 h-6" />,
+      goal: "Find the best mobile phone within a specific budget.",
+      thoughts: "I need a new phone, but there are too many options. I don't want to overpay.",
+      actions: "Google search 'best phone under 20k', sees Shopwise link, lands on Homepage.",
+      painPoints: "Cluttered landing pages, overwhelming ads, slow load times.",
+      solution: "Minimalist, search-focused Hero UI. 'Trending Now' carousel with glassmorphism effects. Instant load time (SPA).",
+      metrics: "Bounce Rate, Time on Page"
+    },
+    {
+      id: 1,
+      title: "Smart Search",
+      icon: <Smartphone className="w-6 h-6" />,
+      goal: "Narrow down choices quickly based on specific needs (Camera, Battery, Gaming).",
+      thoughts: "I want a 108MP camera and at least 5000mAh battery.",
+      actions: "Uses 'Smart Filters' or voice search. Toggles 'Gaming Mode' filter.",
+      painPoints: "Complex filter menus, page reloads after every selection, irrelevant results.",
+      solution: "Real-time AI Search Bar. Visual filter chips (icons instead of checkboxes). Haptic feedback on selection.",
+      metrics: "Search Exit Rate, Filter Usage"
+    },
+    {
+      id: 2,
+      title: "The Comparison",
+      icon: <GitCompare className="w-6 h-6" />,
+      goal: "Side-by-side spec check to make the final decision.",
+      thoughts: "Is the Pro version worth the extra 5k? How do the screens compare?",
+      actions: "Selects 3 phones. Enters 'VS Mode'. Scrolls through highlighted differences.",
+      painPoints: "Horizontal scrolling fatigue, misaligned rows, hard to spot differences text.",
+      solution: "Sticky Header Comparison View. 'Difference Highlighter' (only shows what's different). Dynamic 'Winner' badges for specs.",
+      metrics: "Avg. Time in Compare, Add to Cart Rate"
+    },
+    {
+      id: 3,
+      title: "Decision & Deal",
+      icon: <TrendingUp className="w-6 h-6" />,
+      goal: "Validate the choice and find the cheapest seller.",
+      thoughts: "Is this the lowest price? What do real users say?",
+      actions: "Checks 'Price History Graph'. Reads 'Sentiment Summary' reviews.",
+      painPoints: "Fake reviews, hidden costs, price disparity across sites.",
+      solution: "Unified Price Card (Amazon vs Flipkart vs Croma). AI Review Summarizer (Pros/Cons lists). Price Drop Alert toggle.",
+      metrics: "Click-Through Rate (CTR), Price Alert Subscriptions"
+    },
+    {
+      id: 4,
+      title: "Checkout",
+      icon: <CreditCard className="w-6 h-6" />,
+      goal: "Buy the phone quickly and securely.",
+      thoughts: "Let's buy it before the price changes.",
+      actions: "Clicks 'Buy Now at Lowest Price'. Redirected to merchant app deep-link.",
+      painPoints: "Broken links, slow redirects, coupon code hunting.",
+      solution: "Deep-linking (opens Amazon/Flipkart app directly). Auto-copy Coupon Codes. 'Verified Seller' badge.",
+      metrics: "Conversion Rate, Revenue per User"
+    }
+  ];
+
+  // --- FINAL HYBRID BMC DATA ---
+  const bmcData = {
+    themeColor: "indigo",
+    label: "Shopwise Hybrid Model",
+    desc: "A scalable O2O platform merging digital comparison with trusted, local offline experience.",
+    keyPartners: {
+      items: ["🌐 Online Giants (Amazon, Flipkart)", "🏪 Local Mobile Retailers (Franchise)", "📱 Brands (Direct Integration)"]
+    },
+    keyActivities: {
+      items: ["🌐 API Maintenance & Scraping", "🏪 Merchant Onboarding & QC", "🎥 Video Demo Scheduling", "📅 Partner Training"]
+    },
+    keyResources: {
+      items: ["💻 Proprietary Comparison Tech", "👨‍💼 Network of Store Managers", "🏪 Field Sales Force", "📹 Virtual Demo Studio"]
+    },
+    valuePropositions: {
+      items: ["🌐 Best Deal Guarantee (Price Match)", "🎥 Live Video Product Demos", "🏪 Touch & Feel Experience", "⚡ Instant Local Pickup"]
+    },
+    customerRelationships: {
+      items: ["🎥 1-on-1 Personalized Video", "🤖 Auto Price Drop Alerts", "🛡️ 'Shopwise Verified' Trust Badge"]
+    },
+    channels: {
+      items: ["🌐 Web / PWA / Mobile App", "📅 'Request Video Demo' Button", "💬 WhatsApp Business API", "📍 Hyper-local Maps Integration"]
+    },
+    customerSegments: {
+      items: ["🌐 Digital Natives (Research Online)", "👀 Visual Buyers (Need Trust)", "🤷 Confused Parents/Seniors"]
+    },
+    costStructure: {
+      items: ["💻 Tech Stack & Cloud Hosting", "🏪 Merchant Acquisition Costs", "📢 Hyper-local Marketing", "📉 (Zero Salary Load - Partner Funded)"]
+    },
+    revenueStreams: {
+      items: ["🌐 Affiliate Commissions (Online)", "🎥 Premium Consultation Fees", "🏪 Store Subscription/Listing Fees", "📊 Hyper-local Data Insights"]
+    }
+  };
+
+  // Helper to render standard BMC box
+  const BmcBox = ({ title, icon, items, rowSpan = 1, isFocus = false }) => (
+    <div className={`p-5 rounded-xl border shadow-sm transition-all duration-300 ${rowSpan === 2 ? 'md:row-span-2' : ''} 
+      ${isFocus 
+        ? `bg-${bmcData.themeColor}-50 border-${bmcData.themeColor}-200 shadow-md ring-1 ring-${bmcData.themeColor}-200` 
+        : 'bg-white border-slate-200 hover:shadow-md'}`}>
+      <div className="flex items-center gap-2 mb-4">
+        {icon}
+        <h3 className={`font-bold ${isFocus ? `text-${bmcData.themeColor}-900` : 'text-slate-800'}`}>{title}</h3>
+      </div>
+      <ul className={`text-sm space-y-2 ${isFocus ? `text-${bmcData.themeColor}-800` : 'text-slate-600'}`}>
+        {items.map((item, i) => (
+          <li key={i} className={`flex items-start gap-2 ${!isFocus && 'border-b border-slate-50 pb-1 last:border-0'}`}>
+            {isFocus && <CheckCircle className={`w-4 h-4 mt-0.5 text-${bmcData.themeColor}-600 shrink-0`} />}
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen bg-slate-50 p-4 md:p-8 font-sans text-slate-800">
+      <div className="max-w-7xl mx-auto">
+        
+        {/* Header */}
+        <div className="mb-8 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">Shopwise.in</h1>
+          <p className="text-slate-500 text-lg">Invest in the Future of Hybrid Commerce</p>
+        </div>
+
+        {/* Main View Tabs */}
+        <div className="flex justify-center mb-8">
+          <div className="bg-white p-1 rounded-xl shadow-sm border border-slate-200 inline-flex">
+            <button
+              onClick={() => setActiveTab('journey')}
+              className={`px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 flex items-center gap-2
+                ${activeTab === 'journey' ? 'bg-slate-800 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
+            >
+              <Layout className="w-4 h-4" /> Customer Journey Map
+            </button>
+            <button
+              onClick={() => setActiveTab('bmc')}
+              className={`px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 flex items-center gap-2
+                ${activeTab === 'bmc' ? 'bg-slate-800 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
+            >
+              <Briefcase className="w-4 h-4" /> Business Model Canvas
+            </button>
+          </div>
+        </div>
+
+        {/* --- CUSTOMER JOURNEY MAP VIEW --- */}
+        {activeTab === 'journey' && (
+          <div className="animate-fadeIn">
+            {/* Timeline */}
+            <div className="relative mb-12">
+              <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-200 -z-0 transform -translate-y-1/2 rounded"></div>
+              <div className="flex flex-col md:flex-row justify-between items-center relative z-10 gap-4 md:gap-0">
+                {stages.map((stage, index) => (
+                  <button
+                    key={stage.id}
+                    onClick={() => setActiveStage(index)}
+                    className={`flex flex-col items-center group transition-all duration-300 ${activeStage === index ? 'scale-110' : 'hover:scale-105'}`}
+                  >
+                    <div className={`w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-colors duration-300 border-4 
+                      ${activeStage === index ? 'bg-slate-800 text-white border-slate-200' : 'bg-white text-slate-400 border-white hover:border-slate-100'}`}>
+                      {stage.icon}
+                    </div>
+                    <span className={`mt-3 text-sm font-semibold px-2 py-1 rounded transition-colors duration-300
+                      ${activeStage === index ? 'text-slate-800 bg-slate-100' : 'text-slate-500'}`}>
+                      {stage.title}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Journey Details */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <div className="lg:col-span-4 space-y-6">
+                <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 h-full">
+                  <h3 className="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                    <User className="text-slate-500" /> User Mindset
+                  </h3>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">User Goal</h4>
+                      <p className="text-slate-700 font-medium leading-relaxed">"{stages[activeStage].goal}"</p>
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Inner Monologue</h4>
+                      <div className="bg-slate-50 p-4 rounded-xl rounded-tl-none relative">
+                        <p className="italic text-slate-800">"{stages[activeStage].thoughts}"</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
+                  <div className="bg-red-50 p-6 rounded-2xl border border-red-100">
+                    <h3 className="text-lg font-bold text-red-800 mb-4 flex items-center gap-2">
+                      <Frown className="w-5 h-5" /> Friction Points
+                    </h3>
+                    <p className="text-red-700 leading-relaxed">{stages[activeStage].painPoints}</p>
+                  </div>
+
+                  <div className="bg-emerald-50 p-6 rounded-2xl border border-emerald-100">
+                    <h3 className="text-lg font-bold text-emerald-800 mb-4 flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5" /> Shopwise Solution
+                    </h3>
+                    <p className="text-emerald-700 leading-relaxed font-medium">{stages[activeStage].solution}</p>
+                  </div>
+
+                  <div className="md:col-span-2 bg-gradient-to-br from-slate-800 to-slate-900 p-6 rounded-2xl text-white shadow-xl relative overflow-hidden">
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-3 mb-3">
+                        <Lightbulb className="text-yellow-300 w-6 h-6" />
+                        <h3 className="text-xl font-bold">The UI/UX Pitch</h3>
+                      </div>
+                      <p className="text-slate-200 text-lg mb-4">
+                        Key Feature: <span className="font-semibold text-white border-b-2 border-yellow-400 pb-0.5">
+                          {stages[activeStage].solution.split('.')[0]}
+                        </span>
+                      </p>
+                      <div className="flex items-center gap-2 text-sm text-slate-300 bg-white/10 w-fit px-3 py-1.5 rounded-full backdrop-blur-sm">
+                        <TrendingUp className="w-4 h-4" />
+                        <span>Impact: {stages[activeStage].metrics}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* --- BUSINESS MODEL CANVAS VIEW --- */}
+        {activeTab === 'bmc' && (
+          <div className="animate-fadeIn">
+            
+            {/* Strategy Context Card */}
+            <div className="bg-gradient-to-r from-indigo-50 to-white p-5 rounded-xl border border-indigo-100 mb-8 flex items-center gap-4">
+                <div className="bg-indigo-100 p-3 rounded-full">
+                    <Store className="w-6 h-6 text-indigo-700" />
+                </div>
+                <div>
+                    <h2 className="text-lg font-bold text-indigo-900">{bmcData.label}</h2>
+                    <p className="text-indigo-700 text-sm">{bmcData.desc}</p>
+                </div>
+            </div>
+
+            {/* The Canvas Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-4 auto-rows-fr">
+              <BmcBox 
+                title="Key Partners" 
+                icon={<Users className={`w-5 h-5 text-${bmcData.themeColor}-600`} />} 
+                items={bmcData.keyPartners.items} 
+                rowSpan={2} 
+              />
+              <div className="flex flex-col gap-4 md:row-span-2">
+                <BmcBox 
+                  title="Key Activities" 
+                  icon={<Zap className={`w-5 h-5 text-${bmcData.themeColor}-600`} />} 
+                  items={bmcData.keyActivities.items} 
+                />
+                <BmcBox 
+                  title="Key Resources" 
+                  icon={<Briefcase className={`w-5 h-5 text-${bmcData.themeColor}-600`} />} 
+                  items={bmcData.keyResources.items} 
+                />
+              </div>
+              
+              {/* Value Prop (Centerpiece) */}
+              <BmcBox 
+                title="Value Propositions" 
+                icon={<Target className={`w-5 h-5 text-${bmcData.themeColor}-600`} />} 
+                items={bmcData.valuePropositions.items} 
+                rowSpan={2} 
+                isFocus={true}
+              />
+
+              <div className="flex flex-col gap-4 md:row-span-2">
+                <BmcBox 
+                  title="Customer Relationships" 
+                  icon={<ShieldCheck className={`w-5 h-5 text-${bmcData.themeColor}-600`} />} 
+                  items={bmcData.customerRelationships.items} 
+                />
+                <BmcBox 
+                  title="Channels" 
+                  icon={<Share2 className={`w-5 h-5 text-${bmcData.themeColor}-600`} />} 
+                  items={bmcData.channels.items} 
+                />
+              </div>
+
+              <BmcBox 
+                title="Customer Segments" 
+                icon={<User className={`w-5 h-5 text-${bmcData.themeColor}-600`} />} 
+                items={bmcData.customerSegments.items} 
+                rowSpan={2} 
+              />
+            </div>
+
+            {/* Bottom Row: Cost & Revenue */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <BmcBox 
+                title="Cost Structure" 
+                icon={<PieChart className="w-5 h-5 text-red-600" />} 
+                items={bmcData.costStructure.items} 
+              />
+              <BmcBox 
+                title="Revenue Streams" 
+                icon={<DollarSign className="w-5 h-5 text-emerald-600" />} 
+                items={bmcData.revenueStreams.items} 
+              />
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default ShopwiseApp;

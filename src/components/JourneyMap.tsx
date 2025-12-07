@@ -59,7 +59,7 @@ const JourneyMap: React.FC = () => {
       thoughts: "Let's buy it before the price changes.",
       actions: "Clicks 'Buy Now at Lowest Price'. Redirected to merchant app deep-link.",
       painPoints: "Broken links, slow redirects, coupon code hunting.",
-      solution: "Deep-linking (opens Amazon/Flipkart app directly). Auto-copy Coupon Codes. 'Verified Seller' badge.",
+      solution: "Deep-linking (opens Amazon/Flipkart app directly). 'Verified Seller' badge.",
       metrics: "Conversion Rate, Revenue per User"
     }
   ];

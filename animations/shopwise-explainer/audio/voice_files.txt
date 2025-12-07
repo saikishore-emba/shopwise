@@ -1,0 +1,6 @@
+./scripts/../animations/shopwise-explainer/audio/voice_1.wav
+./scripts/../animations/shopwise-explainer/audio/voice_2.wav
+./scripts/../animations/shopwise-explainer/audio/voice_3.wav
+./scripts/../animations/shopwise-explainer/audio/voice_4.wav
+./scripts/../animations/shopwise-explainer/audio/voice_5.wav
+./scripts/../animations/shopwise-explainer/audio/voice_6.wav

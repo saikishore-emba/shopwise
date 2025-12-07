@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="200" viewBox="0 0 600 200">
+  <defs>
+    <g id="icon-bag"><rect x="2" y="2" width="56" height="56" rx="8" fill="#06b6d4"/><path d="M14 10c0-6 4-10 12-10s12 4 12 10" stroke="#ffffff" stroke-width="3" fill="none"/></g>
+    <g id="icon-rupee"><rect x="2" y="2" width="56" height="56" rx="8" fill="#10b981"/><path d="M16 20h24M16 28h24M20 12c-2 6 8 10 16 12" stroke="#fff" stroke-width="2.8" stroke-linecap="round" fill="none"/></g>
+    <g id="icon-ques"><rect x="2" y="2" width="56" height="56" rx="8" fill="#f97316"/><text x="28" y="36" font-size="28" font-weight="700" fill="#fff" text-anchor="middle">?</text></g>
+    <g id="icon-coupon"><rect x="2" y="2" width="56" height="56" rx="8" fill="#8b5cf6"/><path d="M10 28h36" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+    <g id="icon-card"><rect x="2" y="2" width="56" height="56" rx="8" fill="#f43f5e"/><rect x="8" y="20" width="40" height="10" rx="2" fill="#fff"/></g>
+  </defs>
+  <g transform="translate(20,20)">
+    <use href="#icon-bag" x="0" y="0"/>
+    <use href="#icon-rupee" x="80" y="0"/>
+    <use href="#icon-ques" x="160" y="0"/>
+    <use href="#icon-coupon" x="240" y="0"/>
+    <use href="#icon-card" x="320" y="0"/>
+  </g>
+</svg>

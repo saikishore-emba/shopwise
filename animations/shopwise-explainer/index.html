@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ShopWise — Explainer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="stage" class="landscape">
+    <!-- Scene 1: Problem -->
+    <div class="scene s1 active" id="s1">
+      <div class="left-col">
+        <video id="v_s1_left" class="stock-video" playsinline muted preload="auto" width="480" height="360">
+          <source src="assets/stock/sceneA_frustrated.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="right-col">
+        <div class="phone-frame">
+          <video id="v_s1_right" class="stock-video" playsinline muted preload="auto" width="240" height="360">
+            <source src="assets/stock/sceneB_typing.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="subtitle" id="sub1">Tired of checking 10 different apps for the best price?</div>
+    </div>
+
+    <!-- Scene 2: Solution -->
+    <div class="scene s2" id="s2">
+      <div class="logo-drop"><object data="assets/shopwise-logo.svg" type="image/svg+xml"></object></div>
+      <div class="clean-screen">
+        <video id="v_s2" class="stock-video" playsinline muted preload="auto" width="960" height="540">
+          <source src="assets/stock/sceneC_scrolling.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="subtitle" id="sub2">Meet ShopWise. One App. Every Deal.</div>
+    </div>
+
+    <!-- Scene 3: Search -->
+    <div class="scene s3" id="s3">
+      <div class="search-closeup">
+        <video id="v_s3" class="stock-video" playsinline muted preload="auto" width="960" height="540">
+          <source src="assets/stock/sceneB_typing.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="subtitle" id="sub3">Just search for your gadget...</div>
+    </div>
+
+    <!-- Scene 4: Magic -->
+    <div class="scene s4" id="s4">
+      <video id="v_s4" class="stock-video" playsinline muted preload="auto" width="960" height="540">
+        <source src="assets/stock/sceneD_reaction.mp4" type="video/mp4">
+      </video>
+      <div class="subtitle" id="sub4">We auto-apply coupons & bank offers for you.</div>
+    </div>
+
+    <!-- Scene 5: Result -->
+    <div class="scene s5" id="s5">
+      <video id="v_s5" class="stock-video" playsinline muted preload="auto" width="960" height="540">
+        <source src="assets/stock/sceneE_hero.mp4" type="video/mp4">
+      </video>
+      <div class="subtitle" id="sub5">Guaranteed Lowest Price. Instantly.</div>
+    </div>
+
+    <!-- Scene 6: CTA -->
+    <div class="scene s6" id="s6">
+      <video id="v_s6" class="stock-video" playsinline muted preload="auto" width="960" height="540">
+        <source src="assets/stock/sceneF_happy.mp4" type="video/mp4">
+      </video>
+      <div class="cta-center">
+        <object data="assets/shopwise-logo.svg" type="image/svg+xml"></object>
+        <div class="stars">★★★★★</div>
+        <button class="download">Download App</button>
+      </div>
+      <div class="subtitle" id="sub6">Shop Smarter. Download ShopWise Today.</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

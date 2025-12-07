@@ -1,0 +1,44 @@
+[
+  {
+    "id": "sceneA_frustrated",
+    "file": "assets/stock/sceneA_frustrated.mp4",
+    "source": "pixabay",
+    "srcPage": "https://pixabay.com/videos/pas-content-au-t%C3%A9l%C3%A9phone-204421/",
+    "note": "frustrated on phone"
+  },
+  {
+    "id": "sceneB_typing",
+    "file": "assets/stock/sceneB_typing.mp4",
+    "source": "pixabay",
+    "srcPage": "https://pixabay.com/videos/phone-smartphone-mobile-portable-202987/",
+    "note": "hands typing on phone close-up"
+  },
+  {
+    "id": "sceneC_scrolling",
+    "file": "assets/stock/sceneC_scrolling.mp4",
+    "source": "pixabay",
+    "srcPage": "https://pixabay.com/videos/smartphone-scroll-touch-47743/",
+    "note": "phone scrolling touch close-up"
+  },
+  {
+    "id": "sceneD_reaction",
+    "file": "assets/stock/sceneD_reaction.mp4",
+    "source": "pixabay",
+    "srcPage": "https://pixabay.com/videos/man-confused-question-thinking-262068/",
+    "note": "reaction relieved"
+  },
+  {
+    "id": "sceneE_hero",
+    "file": "assets/stock/sceneE_hero.mp4",
+    "source": "mixkit",
+    "srcPage": "https://mixkit.co/free-stock-video/man-using-his-computer-and-cell-phone-42750/",
+    "note": "man using computer and phone (phone detail)"
+  },
+  {
+    "id": "sceneF_happy",
+    "file": "assets/stock/sceneF_happy.mp4",
+    "source": "pixabay",
+    "srcPage": "https://pixabay.com/videos/guy-phone-city-street-mobile-phone-6590/",
+    "note": "happy on phone"
+  }
+]

@@ -1,0 +1,113 @@
+# Page snapshot
+
+```yaml
+- generic:
+  - generic:
+    - banner:
+      - generic:
+        - link:
+          - /url: /
+          - generic:
+            - img
+          - generic: ShopWise
+        - generic:
+          - link:
+            - /url: "#how-it-works"
+            - text: How it Works
+          - button: Get Early Access
+    - main:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - img
+              - text: Mobile Price Comparison Engine
+            - heading [level=1]: Stop Tab Switching. Start Saving.
+            - paragraph: Compare Amazon, Flipkart, and 10+ other stores in one click. Find the absolute lowest price for your next gadget instantly.
+            - generic:
+              - button:
+                - text: Get Early Access
+                - img
+            - generic:
+              - generic: "Supported Stores:"
+              - generic:
+                - img
+                - text: Amazon
+              - generic:
+                - img
+                - text: Flipkart
+              - generic:
+                - img
+                - text: Croma
+              - generic:
+                - img
+                - text: Reliance Digital
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - paragraph: See how it works
+                - paragraph: 0:10 • Explainer Video
+      - generic:
+        - heading [level=2]: How ShopWise Works
+        - generic:
+          - generic:
+            - generic: "1"
+            - heading [level=3]: Search Product
+            - paragraph: Enter the name of the gadget you want to buy. We support all major electronics.
+          - generic:
+            - generic: "2"
+            - heading [level=3]: Compare Prices
+            - paragraph: We instantly scan Amazon, Flipkart, Croma, and others to find the best deal.
+          - generic:
+            - generic: "3"
+            - heading [level=3]: Save Money
+            - paragraph: Click the link to the cheapest store and save thousands on your purchase.
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - img
+            - heading [level=2]: Never Miss a Price Drop
+            - paragraph: Join 50,000+ smart shoppers. Get instant alerts when your favorite gadgets hit their lowest price.
+            - generic:
+              - textbox:
+                - /placeholder: Enter your email address
+              - button: Subscribe
+            - paragraph: No spam, ever. Unsubscribe anytime.
+    - contentinfo:
+      - generic: © 2025 Shopwise. All rights reserved.
+      - generic:
+        - link:
+          - /url: /privacy
+          - text: Privacy Policy
+        - link:
+          - /url: /terms
+          - text: Terms of Service
+  - list
+  - alert
+  - dialog "Get Early Access" [active] [ref=e2]:
+    - generic [ref=e3]:
+      - heading "Get Early Access" [level=2] [ref=e4]
+      - paragraph [ref=e5]: Join the waitlist to get notified when we launch.
+    - generic [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e8]: Name
+        - textbox "Name" [ref=e9]:
+          - /placeholder: John Doe
+          - text: automation
+      - generic [ref=e10]:
+        - generic [ref=e11]: Email
+        - textbox "Email" [ref=e12]:
+          - /placeholder: john@example.com
+          - text: abc@test.com
+      - generic [ref=e13]:
+        - button "Joining..." [disabled]:
+          - img
+          - text: Joining...
+    - button "Close" [ref=e14] [cursor=pointer]:
+      - img [ref=e15]
+      - generic [ref=e18]: Close
+```
