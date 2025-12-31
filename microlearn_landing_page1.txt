@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikrolearn - Get Smarter in 60 Seconds</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+                        'pop-in': 'popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        popIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
+
+    <!-- Navigation (Simple) -->
+    <nav class="w-full py-6 px-6 md:px-12 flex justify-between items-center max-w-7xl mx-auto">
+        <div class="font-bold text-2xl tracking-tighter text-brand-600 flex items-center gap-2">
+            <i class="fa-solid fa-bolt"></i> Mikrolearn
+        </div>
+        <button onclick="openModal()" class="hidden md:block text-sm font-semibold text-gray-600 hover:text-brand-600 transition">
+            Get the App
+        </button>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex flex-col items-center px-4 md:px-6 pt-8 pb-20 relative overflow-hidden">
+        
+        <!-- Background Decor -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-blue-50 to-transparent -z-10 pointer-events-none"></div>
+
+        <!-- Hero Text -->
+        <div class="text-center max-w-2xl mx-auto mb-10 animate-fade-in-up">
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-4 leading-tight">
+                What do you want to <span class="text-brand-600">learn</span> today?
+            </h1>
+            <p class="text-xl text-gray-500 font-medium">
+                Pick a topic. Get smarter in 60 seconds.
+            </p>
+        </div>
+
+        <!-- Interactive Element: Dropdown -->
+        <div class="relative w-full max-w-xs md:max-w-sm mb-12 animate-fade-in-up" style="animation-delay: 0.1s;">
+            <div class="relative group">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-brand-500 to-indigo-500 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-200"></div>
+                <select id="topicSelector" class="relative block w-full bg-white border border-gray-200 text-gray-900 font-semibold py-4 px-5 rounded-xl appearance-none focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent cursor-pointer shadow-sm text-lg" onchange="updateCard()">
+                    <option value="" disabled selected>Select a Topic ▼</option>
+                    <option value="pm">Product Management</option>
+                    <option value="ds">Data Science</option>
+                    <option value="ux">UX Design</option>
+                    <option value="agile">Agile Methodologies</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Card Section -->
+        <div id="cardContainer" class="w-full max-w-md perspective-1000 min-h-[400px] flex justify-center items-start">
+            
+            <!-- Placeholder State -->
+            <div id="placeholderState" class="text-center text-gray-400 p-8 border-2 border-dashed border-gray-200 rounded-2xl w-full h-64 flex flex-col items-center justify-center animate-fade-in-up" style="animation-delay: 0.2s;">
+                <i class="fa-solid fa-arrow-up text-3xl mb-4 animate-bounce"></i>
+                <p>Select a topic above to start learning.</p>
+            </div>
+
+            <!-- The Card (Hidden initially) -->
+            <div id="learningCard" class="hidden w-full bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden transform transition-all duration-300 hover:scale-[1.02]">
+                <!-- Card Header -->
+                <div class="bg-brand-50 px-6 py-4 border-b border-brand-100 flex justify-between items-center">
+                    <span id="cardCategory" class="text-xs font-bold uppercase tracking-wider text-brand-600">Category</span>
+                    <span class="text-gray-400 text-xs"><i class="fa-regular fa-clock"></i> 60s read</span>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-6 md:p-8">
+                    <h2 id="cardTitle" class="text-2xl font-bold text-gray-900 mb-3">Topic Title</h2>
+                    <p id="cardSummary" class="text-gray-600 mb-6 italic border-l-4 border-brand-200 pl-4">
+                        Summary goes here.
+                    </p>
+
+                    <div id="cardDetails" class="space-y-4 mb-8">
+                        <!-- Dynamic list items injected here -->
+                    </div>
+
+                    <div class="bg-gray-50 rounded-xl p-4 mb-6">
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-lightbulb text-yellow-400 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900 text-sm block mb-1">Key Takeaway</span>
+                                <p id="cardTakeaway" class="text-sm text-gray-600">Takeaway text.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <button onclick="openModal()" class="w-full py-3.5 px-4 bg-gray-900 hover:bg-black text-white rounded-xl font-bold text-sm transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
+                        READ 5 MORE CARDS LIKE THIS
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Proof -->
+        <div class="mt-20 w-full max-w-4xl mx-auto text-center animate-fade-in-up" style="animation-delay: 0.3s;">
+            <p class="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-8">
+                Join the "Smartest People in the Room" Club
+            </p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <!-- Google -->
+                <div class="flex items-center gap-2 text-xl font-bold text-gray-600">
+                    <i class="fa-brands fa-google text-2xl"></i> Google
+                </div>
+                <!-- Amazon -->
+                <div class="flex items-center gap-2 text-xl font-bold text-gray-600">
+                    <i class="fa-brands fa-amazon text-2xl"></i> Amazon
+                </div>
+                <!-- Spotify -->
+                <div class="flex items-center gap-2 text-xl font-bold text-gray-600">
+                    <i class="fa-brands fa-spotify text-2xl"></i> Spotify
+                </div>
+                 <!-- McKinsey (Text representation) -->
+                 <div class="font-serif text-xl font-bold text-gray-600 tracking-tight">
+                    McKinsey & Company
+                </div>
+            </div>
+            <p class="mt-4 text-xs text-gray-400">Learners from these companies use Mikrolearn</p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-8 text-center text-gray-400 text-sm">
+        &copy; 2025 Mikrolearn Inc.
+    </footer>
+
+    <!-- Modal (Download App) -->
+    <div id="downloadModal" class="fixed inset-0 z-50 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity opacity-0" id="modalBackdrop" onclick="closeModal()"></div>
+
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                <!-- Modal Panel -->
+                <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg scale-95 opacity-0" id="modalPanel">
+                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-brand-100 sm:mx-0 sm:h-10 sm:w-10">
+                                <i class="fa-solid fa-mobile-screen text-brand-600"></i>
+                            </div>
+                            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                                <h3 class="text-xl font-semibold leading-6 text-gray-900" id="modal-title">Get the Full Experience</h3>
+                                <div class="mt-2">
+                                    <p class="text-sm text-gray-500">
+                                        Unlock 1000+ micro-lessons on Product, Design, and Tech. Learn on the go, offline, anytime.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center sm:justify-end">
+                            <button type="button" class="inline-flex w-full sm:w-auto justify-center rounded-lg bg-black px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 gap-2 items-center">
+                                <i class="fa-brands fa-apple text-lg"></i> App Store
+                            </button>
+                            <button type="button" class="inline-flex w-full sm:w-auto justify-center rounded-lg bg-gray-100 px-4 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-200 gap-2 items-center">
+                                <i class="fa-brands fa-google-play text-lg"></i> Play Store
+                            </button>
+                        </div>
+                    </div>
+                    <div class="absolute top-4 right-4 cursor-pointer text-gray-400 hover:text-gray-600" onclick="closeModal()">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logic -->
+    <script>
+        // Content Data
+        const topics = {
+            pm: {
+                category: "Product Management",
+                title: "The Kano Model",
+                summary: "Don't just build features; build delight. The Kano model categorizes customer preferences into Basic, Performance, and Delighters.",
+                details: [
+                    { label: "Basic", desc: "Must-haves (Car brakes). Missing them causes dissatisfaction.", color: "bg-red-100 text-red-800" },
+                    { label: "Performance", desc: "The more, the better (Gas mileage). Linearly related to satisfaction.", color: "bg-blue-100 text-blue-800" },
+                    { label: "Delighters", desc: "Unexpected wow (Heated seats). Creates high satisfaction instantly.", color: "bg-green-100 text-green-800" }
+                ],
+                takeaway: "Prioritize \"Basics\" to avoid complaints, but \"Delighters\" to win loyalty."
+            },
+            ds: {
+                category: "Data Science",
+                title: "P-Value Intuition",
+                summary: "The p-value tells you how 'weird' your results are if the status quo were true. It's not the probability that you are right.",
+                details: [
+                    { label: "Low P-Value (<0.05)", desc: "Very weird result. Reject the null hypothesis.", color: "bg-purple-100 text-purple-800" },
+                    { label: "High P-Value", desc: "Common result. Can't prove anything special happened.", color: "bg-gray-100 text-gray-800" },
+                    { label: "Common Trap", desc: "P=0.05 doesn't mean there's a 95% chance the hypothesis is true.", color: "bg-yellow-100 text-yellow-800" }
+                ],
+                takeaway: "Use p-values to filter out noise, but don't blindly trust them without context size."
+            },
+            ux: {
+                category: "UX Design",
+                title: "Fitts's Law",
+                summary: "The time to acquire a target is a function of the distance to and size of the target. Bigger + Closer = Faster.",
+                details: [
+                    { label: "Size Matters", desc: "Make clickable buttons large enough (44px+ on mobile).", color: "bg-indigo-100 text-indigo-800" },
+                    { label: "Distance", desc: "Keep related actions close together to reduce travel time.", color: "bg-blue-100 text-blue-800" },
+                    { label: "Infinite Edges", desc: "Corners of screens are easiest to hit (infinite height/width).", color: "bg-teal-100 text-teal-800" }
+                ],
+                takeaway: "Don't make users play sniper. Place high-priority actions in easy-to-reach zones."
+            },
+            agile: {
+                category: "Agile",
+                title: "Scrum vs. Kanban",
+                summary: "Two paths to agility. Scrum is about cadence and roles; Kanban is about flow and capacity.",
+                details: [
+                    { label: "Scrum", desc: "Fixed lengths (Sprints). Defined roles (PO, Scrum Master).", color: "bg-orange-100 text-orange-800" },
+                    { label: "Kanban", desc: "Continuous flow. No fixed boxes. Focus on limiting WIP.", color: "bg-cyan-100 text-cyan-800" },
+                    { label: "Which to use?", desc: "Use Scrum for product dev. Use Kanban for support/maintenance.", color: "bg-gray-100 text-gray-800" }
+                ],
+                takeaway: "Agile is a mindset, not just a set of ceremonies. Choose the tool that fits the work."
+            }
+        };
+
+        function updateCard() {
+            const selector = document.getElementById('topicSelector');
+            const placeholder = document.getElementById('placeholderState');
+            const card = document.getElementById('learningCard');
+            const selectedValue = selector.value;
+
+            if (!selectedValue) return;
+
+            // Get Data
+            const data = topics[selectedValue];
+
+            // Update DOM Elements
+            document.getElementById('cardCategory').innerText = data.category;
+            document.getElementById('cardTitle').innerText = data.title;
+            document.getElementById('cardSummary').innerText = data.summary;
+            document.getElementById('cardTakeaway').innerText = data.takeaway;
+
+            // Build details list
+            const detailsContainer = document.getElementById('cardDetails');
+            detailsContainer.innerHTML = ''; // Clear previous
+            
+            data.details.forEach(item => {
+                const row = document.createElement('div');
+                row.className = "flex flex-col sm:flex-row sm:items-center gap-2 text-sm";
+                row.innerHTML = `
+                    <span class="${item.color} px-2 py-1 rounded-md font-bold text-xs whitespace-nowrap w-fit">${item.label}</span>
+                    <span class="text-gray-700">${item.desc}</span>
+                `;
+                detailsContainer.appendChild(row);
+            });
+
+            // UI Transition
+            // 1. Hide placeholder
+            placeholder.classList.add('hidden');
+            
+            // 2. Reset card animation
+            card.classList.remove('animate-pop-in');
+            card.classList.add('hidden'); // ensure it's hidden to restart
+            
+            // 3. Trigger reflow
+            void card.offsetWidth; 
+            
+            // 4. Show and animate card
+            card.classList.remove('hidden');
+            card.classList.add('animate-pop-in');
+        }
+
+        // Modal Logic
+        const modal = document.getElementById('downloadModal');
+        const modalBackdrop = document.getElementById('modalBackdrop');
+        const modalPanel = document.getElementById('modalPanel');
+
+        function openModal() {
+            modal.classList.remove('hidden');
+            // Slight delay to allow display:block to apply before opacity transition
+            setTimeout(() => {
+                modalBackdrop.classList.remove('opacity-0');
+                modalPanel.classList.remove('scale-95', 'opacity-0');
+                modalPanel.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            modalBackdrop.classList.add('opacity-0');
+            modalPanel.classList.remove('scale-100', 'opacity-100');
+            modalPanel.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+    </script>
+</body>
+</html>
