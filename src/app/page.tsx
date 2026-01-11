@@ -256,6 +256,24 @@ export default function HomePage() {
                 <span className="flex items-center"><CheckCircle2 className="w-3 h-3 mr-1 text-emerald-600"/> Croma</span>
                 <span className="flex items-center"><CheckCircle2 className="w-3 h-3 mr-1 text-emerald-600"/> Reliance Digital</span>
               </div>
+
+              {/* Inline demo video immediately after Supported Stores */}
+              <div className="mt-8 max-w-4xl mx-auto">
+                <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+                  <div className="p-4 md:p-6">
+                    <h3 className="text-lg font-semibold text-slate-800 mb-3">Watch How ShopWise Works</h3>
+                    <div className="aspect-video">
+                      <iframe
+                        src="https://www.youtube.com/embed/zwVPgAlNERE"
+                        className="w-full h-full"
+                        allow="autoplay; encrypted-media; picture-in-picture"
+                        allowFullScreen
+                        title="Shopwise Demo Video"
+                      ></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Removed explainer video placeholder to streamline hero */}
