@@ -3,10 +3,18 @@ import products from '../data/products.json';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
+type Product = {
+  asin: string;
+  title: string;
+  image: string;
+  price: string;
+  url: string;
+};
+
 export function ProductList() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-      {products.map((product) => (
+      {(products as Product[]).map((product) => (
         <Card key={product.asin} className="flex flex-col">
           <CardHeader>
             <CardTitle className="text-lg line-clamp-2">{product.title}</CardTitle>

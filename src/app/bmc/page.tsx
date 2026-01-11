@@ -33,10 +33,10 @@ const ShopwiseApp = () => {
       items: ["🌐 Digital Natives (Research Online)", "👀 Visual Buyers (Need Trust)", "🤷 Confused Purchasers"]
     },
     costStructure: {
-      items: ["💻 Tech Stack & Cloud Hosting", "🏪 Merchant Acquisition Costs", "📢 Hyper-local Marketing"]
+      items: ["💻 Tech Stack & Cloud Hosting", "🏪 Merchant Acquisition Costs", "~~Hyper-local Marketing~~"]
     },
     revenueStreams: {
-      items: ["🌐 Affiliate Commissions (Online)", "🏪 Store Subscription/Listing Fees", "📊 Hyper-local Data Insights", "📈 Digital Marketing Income"]
+      items: ["🌐 Affiliate Commissions (Online)", "~~Store Subscription/Listing Fees~~", "📊 Hyper-local Data Insights", "📈 Digital Marketing Income"]
     }
   };
 
@@ -54,7 +54,7 @@ const ShopwiseApp = () => {
         {items.map((item, i) => (
           <li key={i} className={`flex items-start gap-2 ${!isFocus && 'border-b border-slate-50 pb-1 last:border-0'}`}>
             {isFocus && <CheckCircle className={`w-4 h-4 mt-0.5 text-${bmcData.themeColor}-600 shrink-0`} />}
-            <span>{item}</span>
+            <span className={item.startsWith('~~') ? 'line-through text-slate-500' : ''}>{item.replace(/~~/g, '')}</span>
           </li>
         ))}
       </ul>

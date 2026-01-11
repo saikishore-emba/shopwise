@@ -8,12 +8,41 @@ import {
   Truck, Store
 } from 'lucide-react';
 
+type Seller = {
+  name: string;
+  price: number;
+  delivery: string;
+  type: 'online' | 'offline' | string;
+  distance?: string;
+};
+
+type Phone = {
+  id: number;
+  name: string;
+  brand: string;
+  price: number;
+  image: string;
+  rating: number;
+  reviews: number;
+  specs: {
+    screen: string;
+    ram: string;
+    storage: string;
+    battery: string;
+    cam: string;
+    [key: string]: string;
+  };
+  pros: string[];
+  cons: string[];
+  sellers: Seller[];
+};
+
 const MobilePrototype = () => {
   // --- STATE MANAGEMENT ---
   const [screen, setScreen] = useState('home'); // home, search, product, compare, profile
-  const [cart, setCart] = useState([]);
-  const [compareList, setCompareList] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [cart, setCart] = useState<Phone[]>([]);
+  const [compareList, setCompareList] = useState<Phone[]>([]);
+  const [selectedProduct, setSelectedProduct] = useState<Phone | null>(null);
   const [showAiSearch, setShowAiSearch] = useState(false);
   const [aiResponse, setAiResponse] = useState("");
   const [isAiLoading, setIsAiLoading] = useState(false);
@@ -94,7 +123,7 @@ const MobilePrototype = () => {
   ];
 
   // --- ACTIONS ---
-  const handleAddToCompare = (e, phone) => {
+  const handleAddToCompare = (e: React.MouseEvent, phone: Phone) => {
     e.stopPropagation();
     if (compareList.find(p => p.id === phone.id)) {
       setCompareList(compareList.filter(p => p.id !== phone.id));
@@ -104,7 +133,7 @@ const MobilePrototype = () => {
     }
   };
 
-  const goToProduct = (phone) => {
+  const goToProduct = (phone: Phone) => {
     setSelectedProduct(phone);
     setScreen('product');
   };
@@ -121,7 +150,7 @@ const MobilePrototype = () => {
   // --- COMPONENTS ---
   
   // 1. HEADER
-  const Header = ({ title, showBack, rightAction }) => (
+  const Header = ({ title, showBack, rightAction }: { title: string; showBack?: boolean; rightAction?: React.ReactNode }) => (
     <div className="bg-white px-4 py-3 shadow-sm flex items-center justify-between sticky top-0 z-50">
       <div className="flex items-center gap-3">
         {showBack && (
@@ -433,7 +462,7 @@ const MobilePrototype = () => {
             </div>
             <div className="text-right">
               <div className="text-2xl font-bold text-indigo-600">₹{selectedProduct?.price.toLocaleString()}</div>
-              <div className="text-xs text-slate-400 line-through">₹{(selectedProduct?.price * 1.1).toFixed(0)}</div>
+              <div className="text-xs text-slate-400 line-through">₹{((selectedProduct?.price ?? 0) * 1.1).toFixed(0)}</div>
             </div>
           </div>
 

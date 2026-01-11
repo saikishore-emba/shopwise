@@ -15,7 +15,11 @@ export function CollectionCard({ image, title, description, link }: CollectionCa
       <div className="p-6 flex-1">
         <h2 className="text-2xl font-bold mb-2">{title}</h2>
         <p className="text-gray-700 mb-4">{description}</p>
-        {link && <Button as="a" href={link}>Shop Collection</Button>}
+        {link && (
+          <Button asChild>
+            <a href={link}>Shop Collection</a>
+          </Button>
+        )}
       </div>
     </div>
   );
